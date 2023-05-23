@@ -8,10 +8,12 @@ import javax.persistence.EntityExistsException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -79,12 +81,14 @@ public class HomeController {
         return "list";
     }
 
-    @GetMapping("/salaries/search/{name}")
-    public String searchSalarie(final ModelMap model, @PathVariable(value = "name") String name)
+    @GetMapping("/search")
+    public String searchSalarie(@RequestParam("name") String name, ModelMap model)
             throws EntityExistsException, SalarieException {
-        List<SalarieAideADomicile> listSalaries = this.salarieService.getSalaries(name);
+        List<SalarieAideADomicile> listSalaries = salarieService.getSalaries(name);
         model.put("salaries", listSalaries);
-        model.put("countEmployees", this.salarieService.countSalaries());
+        model.put("countEmployees", salarieService.countSalaries());
         return "list";
     }
+
+
 }

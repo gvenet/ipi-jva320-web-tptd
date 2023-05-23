@@ -27,12 +27,13 @@
           </span></a></li>
         </ul>
 
-        <form class="form-inline my-2 my-lg-0" role="search" action="http://localhost:8080/salaries" method="GET">
+        <form class="form-inline my-2 my-lg-0" role="search" th:action="@{/search}" method="GET">
           <div class="form-group">
-            <input name="matricule" class="form-control" placeholder="Rechercher un nom" type="text">
+            <input name="name" class="form-control" placeholder="Rechercher un nom" type="text" th:value="${name}" />
           </div>
           <button type="submit" class="btn btn-outline-success ml-2 my-2 my-sm-0">Rechercher</button>
         </form>
+
       </div>
     </nav>
   </div>
