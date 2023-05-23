@@ -3,6 +3,8 @@ package com.ipi.jva320.model;
 import javax.persistence.*;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -45,6 +47,16 @@ public class SalarieAideADomicile {
     private double congesPayesPrisAnneeNMoins1= 0;
 
     public SalarieAideADomicile() {
+        this.nom = "";
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");  
+        LocalDate now = LocalDate.now();
+        this.moisDebutContrat = LocalDate.parse(dtf.format(now));
+        this.moisEnCours = LocalDate.parse(dtf.format(now));
+        this.joursTravaillesAnneeNMoins1 = 0;
+        this.congesPayesAcquisAnneeNMoins1 = 0;
+        this.congesPayesPrisAnneeNMoins1 = 0;
+        this.joursTravaillesAnneeN = 0;
+        this.congesPayesAcquisAnneeN = 0;
     }
 
     public SalarieAideADomicile(String nom, LocalDate moisDebutContrat, LocalDate moisEnCours,

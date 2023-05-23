@@ -13,18 +13,45 @@ import java.time.LocalDate;
 @Component
 public class DataInitService implements CommandLineRunner {
 
-    @Autowired
-    private SalarieAideADomicileService salarieAideADomicileService;
+        @Autowired
+        private SalarieAideADomicileService salarieAideADomicileService;
 
-    @Override
-    public void run(String... argv) throws Exception {
-        if (this.salarieAideADomicileService.countSalaries() == 0) {
-            return;
+        @Override
+        public void run(String... argv) throws Exception {
+                this.salarieAideADomicileService.countSalaries();
+                // if (this.salarieAideADomicileService.countSalaries() != 0) {
+                //         return;
+                // }
+
+                // SalarieAideADomicile s1 = this.salarieAideADomicileService.creerSalarieAideADomicile(
+                //                 new SalarieAideADomicile(
+                //                                 "Jean",
+                //                                 LocalDate.parse("2022-12-05"),
+                //                                 LocalDate.parse("2022-12-05"),
+                //                                 20,
+                //                                 0,
+                //                                 80,
+                //                                 10,
+                //                                 1));
+                // SalarieAideADomicile s2 = this.salarieAideADomicileService.creerSalarieAideADomicile(
+                //                 new SalarieAideADomicile(
+                //                                 "JeanPierre",
+                //                                 LocalDate.parse("2022-12-05"),
+                //                                 LocalDate.parse("2022-12-05"),
+                //                                 20,
+                //                                 0,
+                //                                 80,
+                //                                 10,
+                //                                 1));
+                // SalarieAideADomicile s3 = this.salarieAideADomicileService.creerSalarieAideADomicile(
+                //                 new SalarieAideADomicile(
+                //                                 "JeanMarc",
+                //                                 LocalDate.parse("2013-12-05"),
+                //                                 LocalDate.parse("2012-12-05"),
+                //                                 20,
+                //                                 0,
+                //                                 80,
+                //                                 10,
+                //                                 1));
         }
-
-        SalarieAideADomicile s1 = this.salarieAideADomicileService.creerSalarieAideADomicile(
-                new SalarieAideADomicile("Jean", LocalDate.parse("2022-12-05"), LocalDate.parse("2022-12-05"),
-                        20, 0,
-                        80, 10, 1));
-    }
 }
