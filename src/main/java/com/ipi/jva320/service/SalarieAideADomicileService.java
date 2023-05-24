@@ -13,7 +13,6 @@ import javax.persistence.EntityExistsException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Optional;
@@ -84,7 +83,7 @@ public class SalarieAideADomicileService {
      * 
      * @param salarieAideADomicile à créer
      * @return salarieAideADomicile créé (avec son id en base)
-     * @throws SalarieException si son nom est déjà pris ou si l'id est fourni TODO
+     * @throws SalarieException si son nom est déjà pris ou si l'id est fourni
      *                          NON
      */
     public SalarieAideADomicile creerSalarieAideADomicile(SalarieAideADomicile salarieAideADomicile)
@@ -97,7 +96,7 @@ public class SalarieAideADomicileService {
          * salarieAideADomicileRepository.findById(salarieAideADomicile.getId());
          * if (!existantOptional.isEmpty()) {
          * throw new SalarieException("Un salarié existe déjà avec l'id " +
-         * existant.getId()); // TODO id ou nom ??
+         * existant.getId());
          * }
          */
         return salarieAideADomicileRepository.save(salarieAideADomicile);
@@ -111,9 +110,7 @@ public class SalarieAideADomicileService {
         Optional<SalarieAideADomicile> existantOptional = salarieAideADomicileRepository
                 .findById(salarieAideADomicile.getId());
         if (existantOptional.isEmpty()) {
-            throw new SalarieException("Le salarié n'existe pas déjà d'id " + salarieAideADomicile.getId()); // TODO id
-                                                                                                             // ou nom
-                                                                                                             // ??
+            throw new SalarieException("Le salarié n'existe pas déjà d'id " + salarieAideADomicile.getId());
         }
         return salarieAideADomicileRepository.save(salarieAideADomicile);
     }

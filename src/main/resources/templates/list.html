@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head th:replace="head :: head"></head>
+<head th:replace="fragments/head :: headerFragment">
+  <title id="pageTitle">Aide à domicile RH - gestion des salariés</title>
+</head>
 
 <body>
 
-  <div th:replace="navbar :: navbar"></div>
+  <div th:replace="fragments/navbar :: navbar"></div>
 
   <div class="container">
     <div class="row">
@@ -16,10 +18,9 @@
           <thead>
             <tr>
               <th scope="col">ID
-                <a
-                  th:href="
+                <a th:href="
                     @{/salaries(
-                      page=0, 
+                      page=${currentPage},
                       size=10, 
                       sortProperty='id', 
                       sortIdDirection=(${sortIdDirection == 'DESC'} ? 'ASC' : 'DESC'), 
@@ -29,12 +30,14 @@
                 </a>
               </th>
               <th scope="col">Nom
-                <a
-                  th:href="
-                    @{/salaries(page=0, size=10, sortProperty='nom', 
-                    sortNameDirection=(${sortNameDirection == 'DESC'} ? 'ASC' : 'DESC'), 
-                    name=${name}, 
-                    sortIdDirection = ${sortIdDirection})}">
+                <a th:href="
+                    @{/salaries(
+                      page=${currentPage},
+                      size=10, 
+                      sortProperty='nom', 
+                      sortNameDirection=(${sortNameDirection == 'DESC'} ? 'ASC' : 'DESC'), 
+                      name=${name}, 
+                      sortIdDirection = ${sortIdDirection})}">
                   <i th:class="${sortNameDirection == 'DESC'} ? 'fa fa-chevron-up' : 'fa fa-chevron-down'"></i>
                 </a>
 
@@ -70,8 +73,7 @@
 
 
               <li class="page-item" th:classappend="${currentPage <= 0} ? 'disabled' : ''">
-                <a class="page-link"
-                  th:href="
+                <a class="page-link" th:href="
                     @{/salaries(page=(${currentPage} - 1), 
                     size=10, 
                     sortProperty=${sortProperty},
@@ -90,8 +92,7 @@
 
 
               <li class="page-item" th:classappend="${currentPage >= totalPages - 1} ? 'disabled' : ''">
-                <a class="page-link"
-                  th:href="
+                <a class="page-link" th:href="
                     @{/salaries(page=(${currentPage} + 1),
                     size=10,
                     sortProperty=${sortProperty},
@@ -109,9 +110,5 @@
     </div>
   </div>
 </body>
-
-<footer>
-  <script th:inline="javascript" th:src="@{/static/scripts/script.js}"></script>
-</footer>
 
 </html>

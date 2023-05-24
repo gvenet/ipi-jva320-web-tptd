@@ -45,6 +45,7 @@ public class ListController {
         model.put("countEmployees", this.salarieService.countSalaries());
         model.put("size", size);
         model.put("name", name);
+        model.put("page", page);
         model.put("sortDirection", sortDirection);
         model.put("sortProperty", sortProperty);
 

@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head th:fragment="head">
+<head th:fragment="headerFragment">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-  <title>Aide à domicile RH - gestion des salariés</title>
+  <title th:include=":: #pageTitle">Aide à domicile RH - gestion des salariés</title>
   <link rel="stylesheet" th:href="@{/static/styles/bootstrap.min.css}">
   <link rel="stylesheet" th:href="@{/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css}">
-
-
 </head>
-
-</html>

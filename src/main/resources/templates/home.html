@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head th:replace="head :: head"></head>
+<head th:replace="fragments/head :: headerFragment">
+    <title id="pageTitle">Aide à domicile RH - gestion des salariés</title>
+</head>
 
 <body>
 
-    <div th:replace="navbar :: navbar"></div>
+    <div th:replace="fragments/navbar :: navbar"></div>
 
     <div class="container mt-2">
         <div class="jumbotron">
@@ -31,13 +33,13 @@
                 <li class="list-group-item">
                     <h4 class="list-group-item-heading">Page d'accueil</h4>
                     <p class="list-group-item-text">La racine de l'application doit rediriger sur le présent template
-                        Thymeleaf. Développer le bon HomeController pour cela.</em>.</p>
+                        Thymeleaf. Développer le bon HomeController pour cela.</p>
                 </li>
                 <li class="list-group-item">
                     <h4 class="list-group-item-heading">Message en page d'accueil</h4>
                     <p class="list-group-item-text">Rendre configurable le message de bienvenue sur la présente page
                         (Bienvenue dans l'interface d'administration RH !) dans le fichier de messages de l'application
-                        (main/resources/messages(en/fr(_FR)).properties)</em>.</p>
+                        (main/resources/messages(en/fr(_FR)).properties).</p>
                 </li>
                 <li class="list-group-item">
                     <h4 class="list-group-item-heading">Afficher le nombre de salariés</h4>
