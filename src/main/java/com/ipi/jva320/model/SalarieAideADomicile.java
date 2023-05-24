@@ -52,11 +52,11 @@ public class SalarieAideADomicile {
         LocalDate now = LocalDate.now();
         this.moisDebutContrat = LocalDate.parse(dtf.format(now));
         this.moisEnCours = LocalDate.parse(dtf.format(now));
-        this.joursTravaillesAnneeNMoins1 = 0;
-        this.congesPayesAcquisAnneeNMoins1 = 0;
-        this.congesPayesPrisAnneeNMoins1 = 0;
-        this.joursTravaillesAnneeN = 0;
-        this.congesPayesAcquisAnneeN = 0;
+        this.joursTravaillesAnneeNMoins1 = 12;
+        this.congesPayesAcquisAnneeNMoins1 = 12;
+        this.congesPayesPrisAnneeNMoins1 = 12;
+        this.joursTravaillesAnneeN = 12;
+        this.congesPayesAcquisAnneeN = 12;
     }
 
     public SalarieAideADomicile(String nom, LocalDate moisDebutContrat, LocalDate moisEnCours,

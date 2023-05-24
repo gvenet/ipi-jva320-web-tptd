@@ -53,14 +53,14 @@ public class SalarieAideADomicileService {
     /**
      * @return le nombre de salariés dans la base
      */
-    public List<SalarieAideADomicile> getSalaries(String nom) {
+    public Page<SalarieAideADomicile> getSalaries(String nom) {
         return salarieAideADomicileRepository.findAllByNom(nom, null);
     }
 
     /**
      * @return le nombre de salariés dans la base
      */
-    public List<SalarieAideADomicile> getSalaries(String nom, Pageable pageable) {
+    public Page<SalarieAideADomicile> getSalaries(String nom, Pageable pageable) {
         return salarieAideADomicileRepository.findAllByNom(nom, pageable);
     }
 
